@@ -1,5 +1,5 @@
 import React from 'react'
-import source from '../assets/46 1.png'
+import source from '../assets/MyNode UI.png'
 
 const Image = () => {
   return (

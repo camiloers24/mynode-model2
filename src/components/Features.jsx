@@ -39,6 +39,7 @@ import JoinMarket from '../assets/Joinmarket.png';
 import WardenTerminal from '../assets/Warden_terminal.png';
 import Specter from '../assets/Specter.png';
 import PyBlock from '../assets/Pyblock.png';
+import Datum from '../assets/Datum.png'
 
 const BTCAppsList = [
   {
@@ -72,6 +73,10 @@ const BTCAppsList = [
   {
     img: PyBlock,
     text: 'PyBlock',
+  },
+  {
+    img: Datum,
+    text: 'Datum',
   },
 ]
 
@@ -117,7 +122,7 @@ const LightningAppsList = [
   {
     img: LNDHub,
     text: 'LND Hub',
-  },
+  },  
 ]
 
 // Other Apps

@@ -1,5 +1,5 @@
 import React from 'react'
-import asset from '../assets/included.png'
+import asset from '../assets/Exploded Specs.png'
 
 import includes1 from '../assets/software-stroke-rounded 1.svg'
 import includes2 from '../assets/customer-service-01-stroke-rounded (1) 1.svg'
@@ -33,7 +33,7 @@ const Included = () => {
     },
     {
       img: includes6,
-      text: '530% Faster Initial Block',
+      text: '14.8x Faster Initial Block',
     },
 
   ]
@@ -44,7 +44,7 @@ const Included = () => {
       <h2 className='mb-20 text-6xl font-bold text-center'>Included</h2>
       {/* Content */}
       <div className='container mx-auto mb-8'>
-        <img className='block mx-auto mb-12 w-full max-w-2xl'
+        <img className='block mx-auto mb-12 w-full max-w-4xl'
           src={asset} alt="" loading='lazy' />
 
         <div className='grid sm:grid-cols-2 gap-y-6 sm:gap-x-8 md:gap-x-36 lg:gap-x-36 mb-24 px-6 sm:px-0 lg:px-32 xl:px-60 max-w-7xl mx-auto'>

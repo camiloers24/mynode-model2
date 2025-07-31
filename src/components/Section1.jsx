@@ -1,6 +1,6 @@
 import React from 'react'
 
-import background from '../assets/image.png'
+import background from '../assets/Bitcoin Background.png'
 
 const Section1 = () => {
   return (
