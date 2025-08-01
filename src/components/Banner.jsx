@@ -14,11 +14,15 @@ const Banner = () => {
           {/* Content Container */}
           <div className='mx-auto text-mn-gray-banner'>
             <div className="mb-8 flex justify-center">
-  <div className="leading-tight relative inline-block text-left">
-    <h1 className="text-7xl font-black text-white">MODEL TWO</h1>
-    <div className="text-3xl font-black text-white pr-[6px] text-right">REV B</div>
-  </div>
-</div>
+              <div className="leading-tight relative inline-block text-left">
+                <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-7xl font-black text-white">
+                  MODEL TWO
+                </h1>
+                <div className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl font-black text-white pr-[6px] text-right">
+                  REV B
+                </div>
+              </div>
+            </div>
             <p className='mb-8 text-lg sm:text-xl text-gray-400 max-w-full text-center'>
               The Model Two is the MyNode package but better! It includes the MyNode software, support and our most powerful hardware.
             </p>

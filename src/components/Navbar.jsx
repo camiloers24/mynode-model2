@@ -1,40 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import logo from '../assets/logo.svg'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
-import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 
 const Navbar = () => {
-
   const [activeMenu, setActiveMenu] = useState(false)
-  const [hidden, setHidden] = useState(false)
-
-  useEffect(() => {
-    let prevScrollPos = window.scrollY;
-    const handleScroll = () => {
-      const currentScrollPos = window.scrollY;
-      if (window.scrollY > 30) {
-        setHidden(true)
-      } else {
-        setHidden(false)
-      }
-      if (prevScrollPos > currentScrollPos) {
-        setHidden(false);
-      }
-
-      prevScrollPos = currentScrollPos;
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   return (
-    <nav className={'py-3 px-4 sticky top-0 bg-mn-black/95 backdrop-blur-3xl z-50 transition-all duration-300 ' + (hidden ? '-translate-y-full' : 'translate-y-0')}>
+    <nav className="py-3 px-4 sticky top-0 z-50 transition-all duration-300 bg-mn-black/80 backdrop-blur-none sm:backdrop-blur-xl">    
       <div className='container flex justify-between items-center mx-auto'>
         <a href="https://mynodebtc.com/">
           <img src={logo} alt="logo" />
@@ -50,7 +25,7 @@ const Navbar = () => {
         <FontAwesomeIcon icon={faBars} className='sm:hidden' onClick={() => { setActiveMenu(!activeMenu) }} />
 
         <div className={'absolute h-full bg-mn-black pt-4 inset-y-0 right-0 transition-all ' + (activeMenu ? '' : 'hidden ')}>
-          <div className={'bg-mn-black ps-4 pe-4 pb-4 flex flex-col gap-y-5 duration-300 ' + (hidden ? '-translate-y-full' : 'translate-y-0')}>
+          <div className="bg-mn-black ps-4 pe-4 pb-4 flex flex-col gap-y-5 duration-300">
 
             <FontAwesomeIcon icon={faXmark} className='' onClick={() => { setActiveMenu(!activeMenu) }} />
             <a href="https://mynodebtc.com/download" className='px-3 py-2 border-2 hover:border-mn-black hover:text-mn-black hover:bg-white rounded-lg transition-all'>

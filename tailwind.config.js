@@ -19,8 +19,16 @@ export default {
       fontFamily: {
         'inter': ['Inter'],
       },
+      keyframes: {
+        grow: {
+          '0%': { transform: 'scaleX(0)' },
+          '100%': { transform: 'scaleX(1)' },
+        },
+      },
+      animation: {
+        grow: 'grow 1s ease-out forwards',
+      },
     },
   },
   plugins: [],
 }
-
