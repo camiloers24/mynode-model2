@@ -20,8 +20,10 @@ const Banner = () => {
               <div className="absolute inset-0 bg-orange-500/10 blur-[100px] rounded-full z-0 pointer-events-none"></div>
               <img 
                 src={Model} 
-                alt="MyNode Model Two" 
-                loading='lazy' 
+                fetchpriority="high" 
+                loading="eager" 
+                decoding="async"
+                alt="MyNode Model Two"
                 className='relative z-10 w-full h-auto drop-shadow-2xl transition-transform duration-700 hover:scale-105'
               />
             </div>

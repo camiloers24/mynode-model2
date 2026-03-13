@@ -1,39 +1,47 @@
+import React, { Suspense, lazy } from 'react' // Importamos las herramientas de carga diferida
 import './App.css'
+
+// 1. CARGA CRÍTICA: Se cargan de inmediato porque el usuario las ve al entrar
 import Navbar from './components/Navbar'
 import Banner from './components/Banner'
-import Section1 from './components/Section1'
-import Included from './components/Included'
-import ModelOneVTwo from './components/ModelOneVTwo'
-import Video from './components/Video'
-import RunYourOwn from './components/RunYourOwn'
-import Image from './components/Image'
-import Features from './components/Features'
 import SmoothScroll from './components/SmoothScroll'
-import Footer from './components/Footer' 
+
+// 2. CARGA DIFERIDA (Lazy): Se cargan en segundo plano
+// Esto reduce el tamaño del archivo inicial drásticamente
+const Section1 = lazy(() => import('./components/Section1'))
+const Included = lazy(() => import('./components/Included'))
+const ModelOneVTwo = lazy(() => import('./components/ModelOneVTwo'))
+const Video = lazy(() => import('./components/Video'))
+const RunYourOwn = lazy(() => import('./components/RunYourOwn'))
+const Image = lazy(() => import('./components/Image'))
+const Features = lazy(() => import('./components/Features'))
+const Footer = lazy(() => import('./components/Footer'))
 
 function App() {
   return (
-    <div className="min-h-screen bg-black text-zinc-50 font-sans antialiased selection:bg-amber-500/30">
-      {/* 1. Iniciamos el motor de scroll suave */}
+    <div className="min-h-[100dvh] bg-black text-zinc-50 font-sans antialiased selection:bg-amber-500/30">
       <SmoothScroll />
-      
       <Navbar />      
       
       <main className="w-full">
-        {/* Todas estas secciones ahora tienen 'Reveal' automático 
-          porque heredan del SectionWrapper que modificamos.
-        */}
+        {/* El Banner se renderiza de inmediato para el LCP */}
         <Banner />
-        <Section1 />
-        <Included />
-        <ModelOneVTwo />
-        <Video />
-        <RunYourOwn />
-        <Image />
-        <Features />
-      </main>
 
-      <Footer />
+        {/* Suspense envuelve todo lo que es "lazy". 
+          Mientras se cargan las secciones, puede mostrar un espacio vacío 
+          o un pequeño spinner (fallback).
+        */}
+        <Suspense fallback={<div className="bg-black h-screen" />}>
+          <Section1 />
+          <Included />
+          <ModelOneVTwo />
+          <Video />
+          <RunYourOwn />
+          <Image />
+          <Features />
+          <Footer />
+        </Suspense>
+      </main>
     </div>
   )
 }
