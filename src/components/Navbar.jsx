@@ -1,46 +1,61 @@
 import React, { useState } from 'react'
-
+import SectionWrapper from './SectionWrapper' // El componente maestro
 import logo from '../assets/logo.svg'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+import MobileMenu from './MobileMenu'
 
 const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(false)
 
   return (
-    <nav className="py-3 px-4 sticky top-0 z-50 transition-all duration-300 bg-mn-black/80 backdrop-blur-none sm:backdrop-blur-xl">    
-      <div className='container flex justify-between items-center mx-auto'>
-        <a href="https://mynodebtc.com/">
-          <img src={logo} alt="logo" />
-        </a>
-        <div className='hidden sm:flex items-center gap-x-4'>
-          <a href="https://mynodebtc.com/download" className='px-3 py-2 border-2 hover:border-mn-black hover:text-mn-black hover:bg-white rounded-lg transition-all'>
-            Download
+    <>
+      {/* Usamos el SectionWrapper como base.
+        1. 'sticky top-0 z-50' para que flote.
+        2. '!py-4' (con el signo !) para obligar a que el padding sea de Navbar y no de sección.
+        3. 'bg-black/70 backdrop-blur-2xl' para el efecto cristal.
+        4. 'border-t-0 border-b' porque solo queremos línea abajo.
+      */}
+      <SectionWrapper 
+        id="navbar-container" 
+        reveal={false}
+        className="sticky top-0 z-50 !py-4 bg-black/70 backdrop-blur-2xl border-t-0 border-b border-white/5"
+      >
+        <nav className='flex justify-between items-center w-full'>
+          
+          <a href="https://mynodebtc.com/" className="relative z-50 flex-shrink-0">
+            <img src={logo} alt="mynode logo" className="h-8 w-auto hover:opacity-80 transition-opacity" />
           </a>
-          <a href="https://mynodebtc.com/order/two" className='px-3 py-2 bg-gradient-to-t from-mn-orange to-mn-orange-gradient hover:from-mn-black hover:to-mn-black text-mn-black hover:text-white border-2 hover:border-2 border-mn-black hover:border-mn-orange-gradient rounded-lg transition-all'>
-            Order Now
-          </a>
-        </div>
-        <FontAwesomeIcon icon={faBars} className='sm:hidden' onClick={() => { setActiveMenu(!activeMenu) }} />
 
-        <div className={'absolute h-full bg-mn-black pt-4 inset-y-0 right-0 transition-all ' + (activeMenu ? '' : 'hidden ')}>
-          <div className="bg-mn-black ps-4 pe-4 pb-4 flex flex-col gap-y-5 duration-300">
-
-            <FontAwesomeIcon icon={faXmark} className='' onClick={() => { setActiveMenu(!activeMenu) }} />
-            <a href="https://mynodebtc.com/download" className='px-3 py-2 border-2 hover:border-mn-black hover:text-mn-black hover:bg-white rounded-lg transition-all'>
+          {/* Desktop Menu */}
+          <div className='hidden sm:flex items-center gap-x-10'>
+            <a 
+              href="https://mynodebtc.com/download" 
+              className='text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-200'
+            >
               Download
             </a>
-            <a href="https://mynodebtc.com/order/two" className='px-3 py-2 bg-gradient-to-t from-mn-orange to-mn-orange-gradient hover:from-mn-black hover:to-mn-black text-mn-black hover:text-white hover:border-2 hover:border-mn-orange-gradient rounded-lg transition-all'>
+            <a 
+              href="https://mynodebtc.com/order/two" 
+              className='px-6 py-2.5 text-sm font-semibold bg-orange-500 text-black rounded-full hover:bg-orange-400 hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(249,115,22,0.2)]'
+            >
               Order Now
             </a>
           </div>
 
-        </div>
+          {/* Mobile Hamburger */}
+          <button 
+            className="sm:hidden p-2 cursor-pointer relative z-50"
+            onClick={() => setActiveMenu(true)}
+          >
+            <FontAwesomeIcon icon={faBars} className='text-zinc-300 hover:text-white text-xl' />
+          </button>
 
+        </nav>
+      </SectionWrapper>
 
-      </div>
-    </nav>
+      <MobileMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
+    </>
   )
 }
 

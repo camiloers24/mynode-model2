@@ -1,4 +1,5 @@
 import React from 'react'
+import SectionWrapper from './SectionWrapper'
 
 import Decentralization from '../assets/database-stroke-rounded 1.svg';
 import Security from '../assets/security-stroke-rounded 1.svg';
@@ -7,12 +8,18 @@ import Independence from '../assets/independence SVG.svg';
 import NetworkStrength from '../assets/zap-stroke-rounded 1.svg';
 import FinancialSovereignty from '../assets/cloud-angled-rain-stroke-rounded 1.svg';
 
-
-const gridComponent = ({ img, title, paragraph }) => <div className='flex flex-col'>
-  <img className='w-12 mb-6' src={img} alt="" />
-  <h3 className='text-2xl font-bold mb-4'>{title}</h3>
-  <p className='text-xl font-normal'>{paragraph}</p>
-</div>
+const GridItem = ({ img, title, paragraph }) => (
+  <div className='flex flex-col p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-md hover:bg-white/[0.06] transition-all duration-500 group'>
+    <img 
+      className='w-14 h-14 mb-8 object-contain group-hover:scale-110 transition-transform duration-500' 
+      src={img} 
+      alt="" 
+    />
+    
+    <h3 className='text-2xl font-bold mb-4 text-white tracking-tight'>{title}</h3>
+    <p className='text-zinc-400 text-lg leading-relaxed font-normal'>{paragraph}</p>
+  </div>
+)
 
 const gridList = [
   {
@@ -49,12 +56,20 @@ const gridList = [
 
 const RunYourOwn = () => {
   return (
-    <div>
-      <h2 className='text-5xl text-center font-bold mb-20'>Run your own Bitcoin node</h2>
-      <div className='grid sm:grid-cols-2 gap-x-4 lg:grid-cols-3 lg:gap-x-32 gap-y-16 container mx-auto px-4 lg:px-20 mb-40'>
-        {gridList.map( (value, index) => gridComponent({...value}))}
+    /* REFACTOR: Reemplazamos <section> y el div max-w-7xl manual por el Wrapper */
+    <SectionWrapper id='benefits'>
+      
+      <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-20 md:mb-32 tracking-tight text-white'>
+        Run your own Bitcoin node
+      </h2>
+      
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8'>
+        {gridList.map((item, index) => (
+          <GridItem key={index} {...item} />
+        ))}
       </div>
-    </div>
+
+    </SectionWrapper>
   )
 }
 
