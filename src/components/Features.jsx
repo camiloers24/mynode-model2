@@ -2,38 +2,38 @@ import React from 'react'
 import SectionWrapper from './SectionWrapper'
 
 // 1. IMPORTS DE ASSETS (Mantengo tus rutas originales)
-import PremiumSupport from '../assets/mentoring-stroke-rounded 3.svg';
-import OneClickUpdates from '../assets/mouse-left-click-04-stroke-rounded 2.svg';
-import FullBitcoinNode from '../assets/bitcoin-cpu-stroke-rounded 2.svg';
-import IntuitiveUI from '../assets/browser-stroke-rounded 2.svg';
-import LightningWallet from '../assets/bitcoin-wallet-stroke-rounded (1) 2.svg';
+import PremiumSupport from '../assets/apps/premium-support.svg';
+import OneClickUpdates from '../assets/apps/updates.svg';
+import FullBitcoinNode from '../assets/apps/bitcoin-node.svg';
+import IntuitiveUI from '../assets/apps/ui.svg';
+import LightningWallet from '../assets/apps/lightning-wallet.svg';
 
-import BTCPayServer from '../assets/BTC Pay Server.png';
-import Mempool from '../assets/Mempool.png';
-import BitcoinExplorer from '../assets/Bitcoin_explorer.png';
-import ElectrumServer from '../assets/Electrum_server.png';
-import JoinMarket from '../assets/Joinmarket.png';
-import WardenTerminal from '../assets/Warden_terminal.png';
-import Specter from '../assets/Specter.png';
-import PyBlock from '../assets/Pyblock.png';
-import Datum from '../assets/Datum.png'
+import BTCPayServer from '../assets/apps/btc-pay-server.png';
+import Mempool from '../assets/apps/mempool.png';
+import BitcoinExplorer from '../assets/apps/bitcoin-explorer.png';
+import ElectrumServer from '../assets/apps/electrum.png';
+import JoinMarket from '../assets/apps/joinmarket.png';
+import WardenTerminal from '../assets/apps/warden.png';
+import Specter from '../assets/apps/specter.png';
+import PyBlock from '../assets/apps/pyblock.png';
+import Datum from '../assets/apps/datum.png'
 
-import LightningTerminal from '../assets/Lightning_terminal.png';
-import RideTheLightning from '../assets/RTL.png';
-import SphinxRelay from '../assets/Sphinx Relay.png';
-import BalanceOfSatoshis from '../assets/Balance_satoshi.png';
-import LNbits from '../assets/LNbits.png';
-import LNDg from '../assets/Group.png';
-import Thunderhub from '../assets/Thunderhub.png';
-import LNDHub from '../assets/LND_hub.png';
+import LightningTerminal from '../assets/apps/lightning-terminal.png';
+import RideTheLightning from '../assets/apps/rtl.png';
+import SphinxRelay from '../assets/apps/sphinx-relay.png';
+import BalanceOfSatoshis from '../assets/apps/balance-satoshi.png';
+import LNbits from '../assets/apps/lnbits.png';
+import LNDg from '../assets/apps/lndg.png';
+import Thunderhub from '../assets/apps/thunderhub.png';
+import LNDHub from '../assets/apps/lnd_hub.png';
 
-import VPN from '../assets/Group 4.png';
-import Tor from '../assets/Frame 5.png';
-import OpendimeSupport from '../assets/Opendime.png';
-import Tailscale from '../assets/Group 6.svg';
+import VPN from '../assets/apps/vpn.png';
+import Tor from '../assets/apps/tor.png';
+import OpendimeSupport from '../assets/apps/opendime.png';
+import Tailscale from '../assets/apps/tailscale.svg';
 
-import BitcoinCLI from '../assets/binary-code-stroke-rounded 2.svg';
-import LNChannelBackup from '../assets/LN_CHANNEL_BACKUP.png';
+import BitcoinCLI from '../assets/apps/bitcoin-cli.svg';
+import LNChannelBackup from '../assets/apps/ln-backup.png';
 
 // 2. DATA LISTS (Aquí estaban los desaparecidos que causaron la explosión)
 const coreList = [

@@ -1,5 +1,5 @@
 import React from 'react'
-import Model from '../assets/MODEL TWO REV B.png'
+import Model from '../assets/model-two-revb.webp'
 import SectionWrapper from './SectionWrapper'
 
 const Banner = () => {

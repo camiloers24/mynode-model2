@@ -1,13 +1,13 @@
 import React from 'react'
 import SectionWrapper from './SectionWrapper' 
-import asset from '../assets/Exploded Specs.png'
+import asset from '../assets/exploded-specs.webp'
 
-import includes1 from '../assets/software-stroke-rounded 1.svg'
-import includes2 from '../assets/customer-service-01-stroke-rounded (1) 1.svg'
-import includes3 from '../assets/external-drive-stroke-rounded 1.svg'
-import includes4 from '../assets/electric-plugs-stroke-rounded 1.svg'
-import includes5 from '../assets/Ethernet.svg'
-import includes6 from '../assets/zap-stroke-rounded (1) 1.svg'
+import includes1 from '../assets/included/software.svg'
+import includes2 from '../assets/included/support.svg'
+import includes3 from '../assets/included/external-drive.svg'
+import includes4 from '../assets/included/electric-plug.svg'
+import includes5 from '../assets/included/ethernet.svg'
+import includes6 from '../assets/included/fast.svg'
 
 const Included = () => {
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import SectionWrapper from './SectionWrapper'
-import source from '../assets/MyNode UI.png'
+import source from '../assets/mynode-ui.webp'
 
 const Image = () => {
   return (

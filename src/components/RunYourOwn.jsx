@@ -1,12 +1,12 @@
 import React from 'react'
 import SectionWrapper from './SectionWrapper'
 
-import Decentralization from '../assets/database-stroke-rounded 1.svg';
-import Security from '../assets/security-stroke-rounded 1.svg';
-import Privacy from '../assets/customize-stroke-rounded 1.svg';
-import Independence from '../assets/independence SVG.svg';
-import NetworkStrength from '../assets/zap-stroke-rounded 1.svg';
-import FinancialSovereignty from '../assets/cloud-angled-rain-stroke-rounded 1.svg';
+import Decentralization from '../assets/features/decentralization.svg';
+import Security from '../assets/features/security.svg';
+import Privacy from '../assets/features/privacy.svg';
+import Independence from '../assets/features/independence.svg';
+import NetworkStrength from '../assets/features/network.svg';
+import FinancialSovereignty from '../assets/features/sovereignty.svg';
 
 const GridItem = ({ img, title, paragraph }) => (
   <div className='flex flex-col p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-md hover:bg-white/[0.06] transition-all duration-500 group'>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import SectionWrapper from './SectionWrapper' // El componente maestro
+import SectionWrapper from './SectionWrapper' 
 import logo from '../assets/logo.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
@@ -10,12 +10,7 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Usamos el SectionWrapper como base.
-        1. 'sticky top-0 z-50' para que flote.
-        2. '!py-4' (con el signo !) para obligar a que el padding sea de Navbar y no de sección.
-        3. 'bg-black/70 backdrop-blur-2xl' para el efecto cristal.
-        4. 'border-t-0 border-b' porque solo queremos línea abajo.
-      */}
+      
       <SectionWrapper 
         id="navbar-container" 
         reveal={false}
