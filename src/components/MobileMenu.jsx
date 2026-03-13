@@ -19,7 +19,7 @@ const MobileMenu = ({ activeMenu, setActiveMenu }) => {
     <div className={`fixed inset-0 z-[100] sm:hidden bg-zinc-950/95 backdrop-blur-3xl transition-opacity duration-300 ease-in-out ${activeMenu ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
       
       {/* Header - Usamos el Wrapper con !py-4 para alineación con el Navbar */}
-      <SectionWrapper className="border-t-0 !py-4 bg-transparent">
+      <SectionWrapper reveal={false} className="border-t-0 !py-4 bg-transparent">
         <div className="flex justify-between items-center w-full">
           <a href="https://mynodebtc.com/" className="flex-shrink-0">
             <img src={logo} alt="logo" className="h-8 w-auto" />
