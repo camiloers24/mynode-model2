@@ -1,18 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SectionWrapper from './SectionWrapper' 
 
 const Video = () => {
+  // Estado para controlar cuándo el iframe captura el mouse
+  const [isActive, setIsActive] = useState(false);
+
   return (    
     <SectionWrapper id='showcase'>
       
       <div className='relative group'>
         
-        {/* Ambient Glow - Centrado y reaccionando al hover del grupo */}
+        {/* Ambient Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-white/[0.05] blur-[120px] rounded-full z-0 pointer-events-none group-hover:bg-orange-500/[0.05] transition-colors duration-1000"></div>
         
-        <div className='relative z-10 aspect-video w-full rounded-2xl md:rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl bg-zinc-900 transition-transform duration-700 group-hover:scale-[1.01]'>
+        {/* Contenedor: Al hacer click activamos el iframe. Al salir, liberamos el scroll. */}
+        <div 
+          className='relative z-10 aspect-video w-full rounded-2xl md:rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl bg-zinc-900 transition-transform duration-700 group-hover:scale-[1.01] cursor-pointer'
+          onClick={() => setIsActive(true)}
+          onMouseLeave={() => setIsActive(false)}
+        >
           <iframe 
-            className='h-full w-full' 
+            /* Si no está activo, el scroll pasa de largo. Si está activo (click), interactúas. */
+            className={`h-full w-full transition-opacity duration-500 ${isActive ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-80'}`} 
             src="https://www.youtube.com/embed/22SmxolU0Uk" 
             title="MyNode Model Two Showcase" 
             frameBorder="0" 

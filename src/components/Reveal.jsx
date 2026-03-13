@@ -13,7 +13,7 @@ export const Reveal = ({ children, width = "w-full" }) => {
   }, [isInView]);
 
   return (
-    <div ref={ref} className={`relative ${width} overflow-hidden`}>
+    <div ref={ref} className={`relative ${width}`}>
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 30 },
