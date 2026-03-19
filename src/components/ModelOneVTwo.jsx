@@ -49,7 +49,7 @@ const ModelOneVTwo = () => {
               /* Optimización mobile: bg-zinc-900/40 en lugar de blur pesado para mejorar el scroll */
               className='p-6 md:p-10 rounded-3xl bg-zinc-900/40 border border-white/10 md:backdrop-blur-md transition-all duration-300'
             >
-              <h3 className='text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 mb-8'>
+              <h3 className='text-base md:text-lg font-black uppercase tracking-[0.15em] text-zinc-400 mb-6'>
                 {spec.label}
               </h3>
 

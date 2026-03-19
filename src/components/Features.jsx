@@ -1,4 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import SectionWrapper from './SectionWrapper'
 
 // 1. IMPORTS DE ASSETS
@@ -131,37 +134,74 @@ const additionalFeaturesList = [
 
 // 3. HELPER COMPONENTS
 const FeatureCard = ({ img, text }) => (
-  <div className="p-4 flex items-center bg-white/[0.03] border border-white/10 rounded-2xl hover:bg-white/[0.08] hover:border-white/20 transition-all duration-300 group min-h-[70px]">
+  <div className="p-4 flex items-center bg-white/[0.02] border border-white/5 rounded-2xl hover:bg-white/[0.06] hover:border-white/10 transition-all duration-300 group min-h-[70px]">
     <div className='w-10 h-10 flex-shrink-0 mr-4 flex items-center justify-center'>
-      <img className='w-full h-full object-contain group-hover:scale-110 transition-transform duration-500' src={img} alt="" />
+      <img className='w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100' src={img} alt="" />
     </div>
-    <p className='text-sm md:text-base font-semibold text-zinc-300 group-hover:text-white transition-colors leading-tight'>
+    <p className='text-sm md:text-base font-medium text-zinc-400 group-hover:text-zinc-100 transition-colors leading-tight'>
       {text}
     </p>
   </div>
 )
 
-const CategoryBlock = ({ title, list }) => (
-  <div className='mb-24 md:mb-32 last:mb-0'>
-    <div className='mb-10'>      
-      <h3 className='text-2xl md:text-3xl font-bold text-white tracking-tight'>
-        {title}
-      </h3>
+const CategoryBlock = ({ title, list, defaultOpen = false }) => {
+  const [isOpen, setIsOpen] = useState(defaultOpen)
+
+  return (
+    <div className='mb-2 border-b border-white/5 last:border-none'>
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className='flex items-center justify-between w-full py-8 text-left group outline-none'
+      >
+        {/* Título: Ahora en zinc-300 (gris claro) que pasa a blanco en hover o activo */}
+        <h3 className={`text-xl md:text-2xl font-bold tracking-tight transition-colors duration-300 ${
+          isOpen 
+          ? 'text-white' 
+          : 'text-zinc-300 group-hover:text-white'
+        }`}>
+          {title}
+        </h3>
+
+        {/* Icono: También lo aclaramos un poco para que haga juego */}
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className={`${
+            isOpen 
+            ? 'text-white' 
+            : 'text-zinc-400 group-hover:text-zinc-200'
+          }`}
+        >
+          <FontAwesomeIcon icon={faChevronDown} className="text-sm" />
+        </motion.div>
+      </button>
+
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 pt-2 pb-12">
+              {list.map((item, index) => (
+                <FeatureCard key={index} img={item.img} text={item.text} />
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-      {list.map((item, index) => (
-        <FeatureCard key={index} img={item.img} text={item.text} />
-      ))}
-    </div>
-  </div>
-)
+  )
+}
 
 // 4. MAIN COMPONENT
 const Features = () => {
   return (    
-    <SectionWrapper id='features'>
+    <SectionWrapper id='features' className="!pb-12 md:!pb-20">
       
-      <div className='text-center mb-24 md:mb-32'>
+      <div className='text-center mb-16 md:mb-24'>
         <h2 className='text-5xl md:text-7xl font-bold tracking-tight text-white mb-6'>
           Features
         </h2>
@@ -170,12 +210,14 @@ const Features = () => {
         </p>
       </div>
 
-      <CategoryBlock title="Core Features" list={coreList} />
-      <CategoryBlock title="Bitcoin Apps" list={BTCAppsList} />
-      <CategoryBlock title="Lightning Apps" list={LightningAppsList} />
-      <CategoryBlock title="Communication" list={CommunicationList} />
-      <CategoryBlock title="Other Apps" list={otherAppsList} />
-      <CategoryBlock title="Additional Features" list={additionalFeaturesList} />
+      <div className="max-w-6xl mx-auto border-t border-white/5">
+        <CategoryBlock title="Core Features" list={coreList} defaultOpen={true} />
+        <CategoryBlock title="Bitcoin Apps" list={BTCAppsList} />
+        <CategoryBlock title="Lightning Apps" list={LightningAppsList} />
+        <CategoryBlock title="Communication" list={CommunicationList} />
+        <CategoryBlock title="Other Apps" list={otherAppsList} />
+        <CategoryBlock title="Additional Features" list={additionalFeaturesList} />
+      </div>
 
     </SectionWrapper>
   )
