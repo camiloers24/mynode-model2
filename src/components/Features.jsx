@@ -1,41 +1,67 @@
 import React from 'react'
 import SectionWrapper from './SectionWrapper'
 
-// 1. IMPORTS DE ASSETS (Mantengo tus rutas originales)
+// 1. IMPORTS DE ASSETS
 import PremiumSupport from '../assets/apps/premium-support.svg';
 import OneClickUpdates from '../assets/apps/updates.svg';
 import FullBitcoinNode from '../assets/apps/bitcoin-node.svg';
 import IntuitiveUI from '../assets/apps/ui.svg';
 import LightningWallet from '../assets/apps/lightning-wallet.svg';
 
-import BTCPayServer from '../assets/apps/btc-pay-server.png';
-import Mempool from '../assets/apps/mempool.png';
-import BitcoinExplorer from '../assets/apps/bitcoin-explorer.png';
-import ElectrumServer from '../assets/apps/electrum.png';
-import JoinMarket from '../assets/apps/joinmarket.png';
-import WardenTerminal from '../assets/apps/warden.png';
-import Specter from '../assets/apps/specter.png';
-import PyBlock from '../assets/apps/pyblock.png';
-import Datum from '../assets/apps/datum.png'
 
-import LightningTerminal from '../assets/apps/lightning-terminal.png';
-import RideTheLightning from '../assets/apps/rtl.png';
-import SphinxRelay from '../assets/apps/sphinx-relay.png';
-import BalanceOfSatoshis from '../assets/apps/balance-satoshi.png';
-import LNbits from '../assets/apps/lnbits.png';
-import LNDg from '../assets/apps/lndg.png';
-import Thunderhub from '../assets/apps/thunderhub.png';
+import BitcoinExplorer from '../assets/apps/bitcoin-explorer.png';
+import BTCPayServer from '../assets/apps/btc-pay-server.png';
+import CKBunker from '../assets/apps/ckbunker.png';
+import Caravan from '../assets/apps/caravan.png';
+import Datum from '../assets/apps/datum.png';
+import ElectrumServer from '../assets/apps/electrum.png';
+import Jam from '../assets/apps/jam.png';
+import JoinMarket from '../assets/apps/joinmarket.png';
 import LNDHub from '../assets/apps/lnd_hub.png';
+import LilyWallet from '../assets/apps/lily-wallet.png';
+import Mempool from '../assets/apps/mempool.png';
+import PublicPool from '../assets/apps/public-pool.png';
+import PublicPoolUI from '../assets/apps/public-pool-ui.png';
+import PyBlock from '../assets/apps/pyblock.png';
+import Specter from '../assets/apps/specter.png';
+import WardenTerminal from '../assets/apps/warden.png';
+
+
+import AlbyHub from '../assets/apps/alby-hub.png';
+import BalanceOfSatoshis from '../assets/apps/balance-satoshi.png';
+import ChannelTools from '../assets/apps/channel-tools.png';
+import LNDConnect from '../assets/apps/lndconnect.png';
+import LNDManage from '../assets/apps/lnd-manage.png';
+import LNDg from '../assets/apps/lndg.png';
+import LNbits from '../assets/apps/lnbits.png';
+import LightningTerminal from '../assets/apps/lightning-terminal.png';
+import LndBoss from '../assets/apps/lnd-boss.png';
+import Loop from '../assets/apps/loop.png';
+import Pool from '../assets/apps/pool.png';
+import RideTheLightning from '../assets/apps/rtl.png';
+import Thunderhub from '../assets/apps/thunderhub.png';
+import lntop from '../assets/apps/lntop.png';
+
+
+import Astral from '../assets/apps/astral.png';
+import Noscl from '../assets/apps/noscl.png';
+import NostrRSRelay from '../assets/apps/nostr-rs-relay.png';
+import SphinxRelay from '../assets/apps/sphinx-relay.png';
+
 
 import VPN from '../assets/apps/vpn.png';
 import Tor from '../assets/apps/tor.png';
 import OpendimeSupport from '../assets/apps/opendime.png';
 import Tailscale from '../assets/apps/tailscale.svg';
+import Netdata from '../assets/apps/netdata.png';
+import WeTTY from '../assets/apps/wetty.png';
+import WebSSH from '../assets/apps/web-ssh.png';
+
 
 import BitcoinCLI from '../assets/apps/bitcoin-cli.svg';
 import LNChannelBackup from '../assets/apps/ln-backup.png';
 
-// 2. DATA LISTS (Aquí estaban los desaparecidos que causaron la explosión)
+// 2. DATA LISTS
 const coreList = [
   { img: PremiumSupport, text: 'Premium Support' },
   { img: OneClickUpdates, text: 'One-click Updates' },
@@ -45,26 +71,47 @@ const coreList = [
 ]
 
 const BTCAppsList = [
+  { img: BitcoinExplorer, text: 'BTC RPC Explorer' },
   { img: BTCPayServer, text: 'BTC Pay Server' },
-  { img: Mempool, text: 'Mempool' },
-  { img: BitcoinExplorer, text: 'Bitcoin Explorer' },
-  { img: ElectrumServer, text: 'Electrum Server' },
-  { img: JoinMarket, text: 'JoinMarket' },
-  { img: WardenTerminal, text: 'Warden Terminal' },
-  { img: Specter, text: 'Specter' },
-  { img: PyBlock, text: 'PyBlock' },
+  { img: CKBunker, text: 'CKBunker' },
+  { img: Caravan, text: 'Caravan' },
   { img: Datum, text: 'Datum' },
+  { img: ElectrumServer, text: 'Electrum Server' },
+  { img: Jam, text: 'Jam' },
+  { img: JoinMarket, text: 'JoinMarket' },
+  { img: LNDHub, text: 'LND Hub' },
+  { img: LilyWallet, text: 'Lily Wallet' },
+  { img: Mempool, text: 'Mempool' },  
+  { img: PublicPool, text: 'Public Pool' },
+  { img: PublicPoolUI, text: 'Public Pool UI' },
+  { img: PyBlock, text: 'PyBlock' },
+  { img: Specter, text: 'Specter' },
+  { img: WardenTerminal, text: 'Warden Terminal' },
+  
 ]
 
 const LightningAppsList = [
-  { img: LightningTerminal, text: 'Lightning Terminal' },
-  { img: RideTheLightning, text: 'Ride the Lightning' },
-  { img: SphinxRelay, text: 'Sphinx Relay' },
+  { img: AlbyHub, text: 'Alby Hub' },
   { img: BalanceOfSatoshis, text: 'Balance of Satoshis' },
-  { img: LNbits, text: 'LNbits' },
+  { img: ChannelTools, text: 'Channel Tools' },
+  { img: LNDConnect, text: 'LNDConnect' },
+  { img: LNDManage, text: 'LNDManage' },
   { img: LNDg, text: 'LNDg' },
+  { img: LNbits, text: 'LNbits' },  
+  { img: LightningTerminal, text: 'Lightning Terminal' },
+  { img: LndBoss, text: 'LndBoss' },
+  { img: Loop, text: 'Loop' },
+  { img: Pool, text: 'Pool' },
+  { img: RideTheLightning, text: 'Ride the Lightning' },
   { img: Thunderhub, text: 'Thunderhub' },
-  { img: LNDHub, text: 'LND Hub' },
+  { img: lntop, text: 'lntop' },  
+]
+
+const CommunicationList = [
+  { img: Astral, text: 'Astral' },
+  { img: Noscl, text: 'Noscl' },
+  { img: NostrRSRelay, text: 'Nostr RS Relay' },
+  { img: SphinxRelay, text: 'Sphinx Relay' },
 ]
 
 const otherAppsList = [
@@ -72,6 +119,9 @@ const otherAppsList = [
   { img: Tor, text: 'Tor' },
   { img: OpendimeSupport, text: 'Opendime Support' },
   { img: Tailscale, text: 'Tailscale' },
+  { img: Netdata, text: 'Netdata' },
+  { img: WeTTY, text: 'WeTTY' },
+  { img: WebSSH, text: 'Web SSH' },
 ]
 
 const additionalFeaturesList = [
@@ -79,7 +129,7 @@ const additionalFeaturesList = [
   { img: LNChannelBackup, text: 'LN Channel Backup' },
 ]
 
-// 3. HELPER COMPONENTS (Sincronizados con el Wrapper maestro)
+// 3. HELPER COMPONENTS
 const FeatureCard = ({ img, text }) => (
   <div className="p-4 flex items-center bg-white/[0.03] border border-white/10 rounded-2xl hover:bg-white/[0.08] hover:border-white/20 transition-all duration-300 group min-h-[70px]">
     <div className='w-10 h-10 flex-shrink-0 mr-4 flex items-center justify-center'>
@@ -93,8 +143,7 @@ const FeatureCard = ({ img, text }) => (
 
 const CategoryBlock = ({ title, list }) => (
   <div className='mb-24 md:mb-32 last:mb-0'>
-    <div className='mb-10'>
-      {/* Línea naranja removida para un diseño más sobrio */}
+    <div className='mb-10'>      
       <h3 className='text-2xl md:text-3xl font-bold text-white tracking-tight'>
         {title}
       </h3>
@@ -109,10 +158,7 @@ const CategoryBlock = ({ title, list }) => (
 
 // 4. MAIN COMPONENT
 const Features = () => {
-  return (
-    /* REFACTOR: Usamos SectionWrapper para consolidar la simetría lateral.
-       Eliminamos el div 'max-w-7xl' manual.
-    */
+  return (    
     <SectionWrapper id='features'>
       
       <div className='text-center mb-24 md:mb-32'>
@@ -127,6 +173,7 @@ const Features = () => {
       <CategoryBlock title="Core Features" list={coreList} />
       <CategoryBlock title="Bitcoin Apps" list={BTCAppsList} />
       <CategoryBlock title="Lightning Apps" list={LightningAppsList} />
+      <CategoryBlock title="Communication" list={CommunicationList} />
       <CategoryBlock title="Other Apps" list={otherAppsList} />
       <CategoryBlock title="Additional Features" list={additionalFeaturesList} />
 
