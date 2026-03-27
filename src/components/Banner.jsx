@@ -44,8 +44,12 @@ const Banner = () => {
             
             {/* Bloque de Precio */}
             <div className="flex items-center gap-x-4 mb-10 text-3xl sm:text-4xl font-semibold tracking-tight">
-              <span className='text-zinc-600 line-through decoration-2 decoration-orange-500'>
+              <span className='relative inline-block text-zinc-600'>
                 $649
+                {/* Esta es la línea diagonal */}
+                <span className='absolute inset-0 flex items-center justify-center pointer-events-none'>
+                  <span className='w-[110%] h-[6px] bg-orange-500 -rotate-[12deg] rounded-full' />
+                </span>
               </span>
               <span className='text-zinc-500 hidden sm:block'>|</span>
               <span className='text-white'>

@@ -212,11 +212,11 @@ const Features = () => {
 
       <div className="max-w-6xl mx-auto border-t border-white/5">
         <CategoryBlock title="Core Features" list={coreList} defaultOpen={true} />
-        <CategoryBlock title="Bitcoin Apps" list={BTCAppsList} />
-        <CategoryBlock title="Lightning Apps" list={LightningAppsList} />
-        <CategoryBlock title="Communication" list={CommunicationList} />
-        <CategoryBlock title="Other Apps" list={otherAppsList} />
-        <CategoryBlock title="Additional Features" list={additionalFeaturesList} />
+        <CategoryBlock title="Bitcoin Apps" list={BTCAppsList} defaultOpen={true} />
+        <CategoryBlock title="Lightning Apps" list={LightningAppsList} defaultOpen={true} />
+        <CategoryBlock title="Communication" list={CommunicationList} defaultOpen={true} />
+        <CategoryBlock title="Other Apps" list={otherAppsList} defaultOpen={true} />
+        <CategoryBlock title="Additional Features" list={additionalFeaturesList} defaultOpen={true} />
       </div>
 
     </SectionWrapper>
