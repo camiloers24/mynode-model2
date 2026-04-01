@@ -5,13 +5,15 @@ import { Model } from './ModelTwo'
 
 useGLTF.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/')
 
-function RotatingModel() {
+// 1. Ahora el modelo recibe la variable "isVisible" desde afuera
+function RotatingModel({ isVisible }) {
   const groupRef = useRef()
   const { viewport } = useThree()
   const scale = Math.min(viewport.width / 7, viewport.height / 5, 1.0)
 
   useFrame((state, delta) => {
-    if (groupRef.current) {
+    // Si el div es visible en el navegador, aplicamos la rotación
+    if (groupRef.current && isVisible) {
       groupRef.current.rotation.y += delta * 0.2
     }
   })
@@ -27,12 +29,31 @@ function RotatingModel() {
 
 const Hero3D = () => {
   const [shouldRender, setShouldRender] = useState(false)
+  
+  // 2. Creamos los estados para vigilar el <div> de HTML
+  const [isVisible, setIsVisible] = useState(true)
+  const containerRef = useRef()
 
   // Defer la carga del Canvas hasta después del primer paint
   useEffect(() => {
     const timer = setTimeout(() => setShouldRender(true), 100)
     return () => clearTimeout(timer)
   }, [])
+
+  // 3. El Vigilante HTML: Es mil veces más rápido que vigilar el objeto 3D
+  useEffect(() => {
+    if (!containerRef.current) return
+    
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting)
+      },
+      { threshold: 0 } // Se activa apenas asoma 1 píxel en la pantalla
+    )
+    
+    observer.observe(containerRef.current)
+    return () => observer.disconnect()
+  }, [shouldRender])
 
   if (!shouldRender) return (
     <div className="w-full h-[400px] md:h-[600px] lg:h-[700px] flex items-center justify-center">
@@ -41,7 +62,8 @@ const Hero3D = () => {
   )
 
   return (
-    <div className="w-full h-[400px] md:h-[600px] lg:h-[700px]">
+    // 4. Conectamos el ref a este div principal
+    <div ref={containerRef} className="w-full h-[400px] md:h-[600px] lg:h-[700px]">
       <Canvas
         shadows={false}
         camera={{ position: [0, 2, 10], fov: 40 }}
@@ -57,9 +79,12 @@ const Hero3D = () => {
         <Suspense fallback={null}>
           <Environment preset="studio" environmentIntensity={0.6} />
           <directionalLight position={[-3, 6, 4]} intensity={1.8} />
-          <directionalLight position={[4, 2, -2]} intensity={0.3} />
+          <directionalLight position={[-4, 2, -2]} intensity={0.3} />
           <pointLight position={[0, -1, -4]} intensity={0.6} color="#ff6600" />
-          <RotatingModel />
+          
+          {/* Le pasamos el aviso de si se está viendo o no */}
+          <RotatingModel isVisible={isVisible} />
+          
           <Preload all />
         </Suspense>
 
