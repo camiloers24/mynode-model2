@@ -1,7 +1,9 @@
 import React, { Suspense, useRef, useEffect, useState } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { OrbitControls, Float, Environment, Preload } from '@react-three/drei'
+import { useGLTF, OrbitControls, Float, Environment, Preload } from '@react-three/drei'
 import { Model } from './ModelTwo'
+
+useGLTF.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/')
 
 function RotatingModel() {
   const groupRef = useRef()
