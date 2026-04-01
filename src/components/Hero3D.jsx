@@ -3,7 +3,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { useGLTF, OrbitControls, Float, Environment, Preload } from '@react-three/drei'
 import { Model } from './ModelTwo'
 
-useGLTF.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/')
+useGLTF.setDecoderPath('/draco/')
 
 // 1. Ahora el modelo recibe la variable "isVisible" desde afuera
 function RotatingModel({ isVisible }) {
@@ -77,7 +77,7 @@ const Hero3D = () => {
         style={{ width: '100%', height: '100%' }}
       >
         <Suspense fallback={null}>
-          <Environment preset="studio" environmentIntensity={0.6} />
+          <Environment preset="studio" environmentIntensity={0.6} resolution={256} />
           <directionalLight position={[-3, 6, 4]} intensity={1.8} />
           <directionalLight position={[-4, 2, -2]} intensity={0.3} />
           <pointLight position={[0, -1, -4]} intensity={0.6} color="#ff6600" />
