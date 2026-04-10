@@ -36,9 +36,7 @@ function App() {
           <Features />
           <Included />
           <ModelOneVTwo />
-          <Video />
-          
-          
+          <Video />           
           
           <Footer />
         </Suspense>
