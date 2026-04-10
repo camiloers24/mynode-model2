@@ -97,7 +97,7 @@ const Hero3D = () => {
                     style={{ width: '100%', height: '100%' }}
                 >
                     <Suspense fallback={null}>
-                    <Environment preset="studio" environmentIntensity={0.6} resolution={256} />
+                    <Environment preset="studio" environmentIntensity={0.6} resolution={128} />
                     <directionalLight position={[-3, 6, 4]} intensity={1.8} />
                     <directionalLight position={[-4, 2, -2]} intensity={0.3} />
                     <pointLight position={[0, -1, -4]} intensity={0.6} color="#ff6600" />

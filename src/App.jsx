@@ -4,11 +4,9 @@ import './App.css'
 // 1. CARGA CRÍTICA: Se cargan de inmediato porque el usuario las ve al entrar
 import Navbar from './components/Navbar'
 import Banner from './components/Banner'
-import SmoothScroll from './components/SmoothScroll'
 
 // 2. CARGA DIFERIDA (Lazy): Se cargan en segundo plano
 // Esto reduce el tamaño del archivo inicial drásticamente
-const Section1 = lazy(() => import('./components/Section1'))
 const Included = lazy(() => import('./components/Included'))
 const ModelOneVTwo = lazy(() => import('./components/ModelOneVTwo'))
 const Video = lazy(() => import('./components/Video'))
@@ -20,7 +18,6 @@ const Footer = lazy(() => import('./components/Footer'))
 function App() {
   return (
     <div className="min-h-[100dvh] bg-black text-zinc-50 font-sans antialiased selection:bg-amber-500/30">
-      <SmoothScroll />
       <Navbar />      
       
       <main className="w-full">

@@ -1,6 +1,5 @@
 import React from 'react'
 import SectionWrapper from './SectionWrapper'
-import logo from '../assets/logo.svg'
 
 const Footer = () => {
   return (
@@ -16,7 +15,7 @@ const Footer = () => {
         {/* Identidad: Logo + Copyright */}
         <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
           <img 
-            src={logo} 
+            src="/logo.svg" 
             alt="MyNode" 
             className="h-7 w-auto opacity-80" // Logo original
           />

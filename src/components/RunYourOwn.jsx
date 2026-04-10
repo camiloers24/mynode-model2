@@ -1,12 +1,6 @@
 import React from 'react'
 import SectionWrapper from './SectionWrapper'
 
-import Decentralization from '../assets/features/decentralization.svg';
-import Security from '../assets/features/security.svg';
-import Privacy from '../assets/features/privacy.svg';
-import Independence from '../assets/features/independence.svg';
-import NetworkStrength from '../assets/features/network.svg';
-import FinancialSovereignty from '../assets/features/sovereignty.svg';
 
 const GridItem = ({ img, title, paragraph }) => (
   <div className='flex flex-col p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-md hover:bg-white/[0.06] transition-all duration-500 group'>
@@ -23,32 +17,32 @@ const GridItem = ({ img, title, paragraph }) => (
 
 const gridList = [
   {
-    img: Decentralization,
+    img: '/features/decentralization.svg',
     title: 'Decentralization',
     paragraph: 'Bitcoin nodes distribute the network across the globe, reducing the risk of central points of failure.'
   },
   {
-    img: Security,
+    img: '/features/security.svg',
     title: 'Security',
     paragraph: 'Nodes verify transactions independently, ensuring that no fraudulent transactions can compromise the blockchain.'
   },
   {
-    img: Privacy,
+    img: '/features/privacy.svg',
     title: 'Privacy',
     paragraph: 'Running a node enhances your privacy by allowing you to verify transactions without relying on third parties.'
   },
   {
-    img: Independence,
+    img: '/features/independence.svg',
     title: 'Independence',
     paragraph: 'By running your own node, you don’t need to trust others. You can independently verify the entire blockchain.'
   },
   {
-    img: NetworkStrength,
+    img: '/features/network.svg',
     title: 'Network Strength',
     paragraph: 'Each node added to the network makes Bitcoin more resilient and robust.'
   },
   {
-    img: FinancialSovereignty,
+    img: '/features/sovereignty.svg',
     title: 'Financial Sovereignty',
     paragraph: 'Take control of your financial future by participating in the Bitcoin network on your own terms.'
   },

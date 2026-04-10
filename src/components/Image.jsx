@@ -1,18 +1,16 @@
 import React from 'react'
 import SectionWrapper from './SectionWrapper'
-import source from '../assets/mynode-ui.webp'
-
 const Image = () => {
   return (
     <SectionWrapper id='ui-experience' className="!py-24 md:!py-40">
       <div className='relative group'>
-        
+
         {/* Resplandor ambiental detrás de la ventana */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[70%] bg-orange-500/10 blur-[120px] rounded-full z-0 pointer-events-none transition-opacity duration-1000 group-hover:opacity-100 opacity-50"></div>
 
         {/* CONTENEDOR MAESTRO DE LA VENTANA (macOS Frame) */}
         <div className="relative z-10 max-w-6xl mx-auto overflow-hidden rounded-2xl border border-white/10 shadow-[0_30px_100px_rgba(0,0,0,0.7)] bg-[#0A0A0A]">
-          
+
           {/* BARRA DE TÍTULO (macOS Style) */}
           <div className="flex items-center justify-between px-5 py-4 bg-zinc-900/50 backdrop-blur-md border-b border-white/5">
             {/* Semáforo de Apple */}
@@ -37,7 +35,7 @@ const Image = () => {
           <div className="relative aspect-video w-full overflow-hidden bg-zinc-900">
             <img
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.01]"
-              src={source}
+              src="/mynode-ui.webp"
               alt="MyNode User Interface"
               loading="lazy"
             />

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import SectionWrapper from './SectionWrapper'
-import logo from '../assets/logo.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
@@ -22,7 +21,7 @@ const MobileMenu = ({ activeMenu, setActiveMenu }) => {
       <SectionWrapper reveal={false} className="border-t-0 !py-4 bg-transparent">
         <div className="flex justify-between items-center w-full">
           <a href="https://mynodebtc.com/" className="flex-shrink-0">
-            <img src={logo} alt="logo" className="h-8 w-auto" />
+            <img src="/logo.svg" alt="logo" className="h-8 w-auto" />
           </a>
           
           <button 

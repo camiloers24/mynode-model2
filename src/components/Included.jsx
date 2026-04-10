@@ -1,23 +1,15 @@
 import React from 'react'
 import SectionWrapper from './SectionWrapper' 
-import asset from '../assets/exploded-specs.webp'
-
-import includes1 from '../assets/included/software.svg'
-import includes2 from '../assets/included/support.svg'
-import includes3 from '../assets/included/external-drive.svg'
-import includes4 from '../assets/included/electric-plug.svg'
-import includes5 from '../assets/included/ethernet.svg'
-import includes6 from '../assets/included/fast.svg'
 
 const Included = () => {
 
   const includesList = [
-    { img: includes1, text: 'MyNode Premium Software' },
-    { img: includes2, text: '1 Year Premium Support' },
-    { img: includes3, text: 'No need for external drive' },
-    { img: includes4, text: 'Power Cord' },
-    { img: includes5, text: 'Ethernet Cable' },
-    { img: includes6, text: '14.8x Faster Initial Block' },
+    { img: '/included/software.svg', text: 'MyNode Premium Software' },
+    { img: '/included/support.svg', text: '1 Year Premium Support' },
+    { img: '/included/external-drive.svg', text: 'No need for external drive' },
+    { img: '/included/electric-plug.svg', text: 'Power Cord' },
+    { img: '/included/ethernet.svg', text: 'Ethernet Cable' },
+    { img: '/included/fast.svg', text: '14.8x Faster Initial Block' },
   ]
 
   return (
@@ -41,7 +33,7 @@ const Included = () => {
           
           <img 
             className='relative z-10 block w-full max-w-4xl drop-shadow-2xl'
-            src={asset} 
+            src="/exploded-specs.webp" 
             alt="MyNode Model Two exploded hardware view" 
             loading='lazy' 
           />

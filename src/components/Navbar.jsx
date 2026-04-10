@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import SectionWrapper from './SectionWrapper' 
-import logo from '../assets/logo.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import MobileMenu from './MobileMenu'
@@ -19,7 +18,7 @@ const Navbar = () => {
         <nav className='flex justify-between items-center w-full'>
           
           <a href="https://mynodebtc.com/" className="relative z-50 flex-shrink-0">
-            <img src={logo} alt="mynode logo" className="h-8 w-auto hover:opacity-80 transition-opacity" />
+            <img src="/logo.svg" alt="mynode logo" className="h-8 w-auto hover:opacity-80 transition-opacity" />
           </a>
 
           {/* Desktop Menu */}

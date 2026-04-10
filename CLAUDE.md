@@ -42,6 +42,7 @@ Tailwind CSS with a custom color palette (`mn-black`, `mn-orange`, `card-color`,
 ### Static assets
 
 Public assets served from `/public/`:
-- `/model-two.glb` — Draco-compressed 3D model
+- `/model-two-v2.glb` — Draco-compressed 3D model (Blender-optimized, 2.8MB)
 - `/model-two-revb.webp`, `/poster-mobile.webp` — poster fallback images
 - `/draco/` — Draco WASM decoder files for `useGLTF`
+- `/apps/` — app icon assets for `Features.jsx` (served as static files, not bundled by Vite)
