@@ -11,9 +11,10 @@ function RotatingModel({ isVisible }) {
   const { viewport } = useThree()
   const scale = Math.min(viewport.width / 7, viewport.height / 5, 1.0)
 
-  useFrame((state, delta) => {    
+  useFrame((state, delta) => {
     if (groupRef.current && isVisible) {
       groupRef.current.rotation.y += delta * 0.2
+      state.invalidate()
     }
   })
 
@@ -65,7 +66,7 @@ const Hero3D = () => {
     return (
         <div ref={containerRef} className="relative w-full h-[400px] md:h-[600px] lg:h-[700px]">        
             {/* 1. EL PÓSTER PERFECTO: Desvanecimiento ultra rápido */}
-            <picture className={`absolute inset-0 w-full h-full pointer-events-none z-0 transition-opacity duration-100 ease-out ${
+            <picture className={`absolute inset-0 w-full h-full pointer-events-none z-0 transition-opacity duration-500 ease-out ${
                 isLoaded ? 'opacity-0' : 'opacity-100'
             }`}>
                 {/* Móvil: Pantallas menores a 768px */}
@@ -82,13 +83,15 @@ const Hero3D = () => {
             {shouldRender && (
                 <div className="absolute inset-0 z-10">
                 <Canvas
+                    frameloop="demand"
                     shadows={false}
                     camera={{ position: [0, 2, 10], fov: 40 }}
-                    gl={{ 
+                    gl={{
                     antialias: true,
+                    alpha: true,
                     toneMapping: 4,
                     toneMappingExposure: 1.0,
-                    powerPreference: 'high-performance',                    
+                    powerPreference: 'high-performance',
                     }}
                     dpr={[1, 1.5]}
                     style={{ width: '100%', height: '100%' }}
