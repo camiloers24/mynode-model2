@@ -1,7 +1,23 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import SectionWrapper from './SectionWrapper'
 
 const ModelOneVTwo = () => {
+  const [animated, setAnimated] = useState(false)
+  const containerRef = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setAnimated(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.15 }
+    )
+    if (containerRef.current) observer.observe(containerRef.current)
+    return () => observer.disconnect()
+  }, [])
   // Ajustamos los anchos para que sean proporcionales y no todos lleguen al 100%
   const specs = [
     {
@@ -41,7 +57,7 @@ return (
           </p>
         </div>
 
-        <div className='flex flex-col gap-6'>
+        <div ref={containerRef} className='flex flex-col gap-6'>
           {specs.map((spec, index) => (
             <div 
               key={index} 
@@ -65,9 +81,9 @@ return (
                   <span className='text-[10px] sm:text-xs text-zinc-500'>{spec.m1.text}</span>
                 </div>
                 <div className='h-1.5 w-full bg-white/5 rounded-full overflow-hidden'>
-                  <div 
-                    className='h-full bg-zinc-700 rounded-full transition-all duration-1000 ease-out will-change-[width]' 
-                    style={{ width: spec.m1.width }}
+                  <div
+                    className='h-full bg-zinc-700 rounded-full transition-[width] duration-1000 ease-out will-change-[width]'
+                    style={{ width: animated ? spec.m1.width : '0%' }}
                   ></div>
                 </div>
               </div>
@@ -79,10 +95,9 @@ return (
                   <span className='text-xs sm:text-sm font-bold text-orange-500 group-hover:text-orange-400 transition-colors duration-500'>{spec.m2.text}</span>
                 </div>
                 <div className='h-3 w-full bg-white/5 rounded-full overflow-hidden'>
-                  <div 
-                    /* Sombra dinámica en hover: El brillo de la barra naranja aumenta */
-                    className='h-full bg-gradient-to-r from-orange-600 to-orange-400 rounded-full shadow-[0_0_15px_rgba(249,115,22,0.3)] group-hover:shadow-[0_0_25px_rgba(249,115,22,0.5)] transition-all duration-1000 ease-out will-change-[width]' 
-                    style={{ width: spec.m2.width }}
+                  <div
+                    className='h-full bg-gradient-to-r from-orange-600 to-orange-400 rounded-full shadow-[0_0_15px_rgba(249,115,22,0.3)] group-hover:shadow-[0_0_25px_rgba(249,115,22,0.5)] transition-[width] duration-1000 ease-out will-change-[width]'
+                    style={{ width: animated ? spec.m2.width : '0%' }}
                   ></div>
                 </div>
               </div>

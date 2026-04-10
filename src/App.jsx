@@ -26,19 +26,20 @@ function App() {
       <main className="w-full">
         {/* El Banner se renderiza de inmediato para el LCP */}
         <Banner />
-
-        {/* Suspense envuelve todo lo que es "lazy". 
-          Mientras se cargan las secciones, puede mostrar un espacio vacío 
-          o un pequeño spinner (fallback).
-        */}
+        
         <Suspense fallback={<div className="bg-black h-screen" />}>
-          <Section1 />
+          {/*<Section1 />*/}
+          <RunYourOwn />
+
+          <Image />
+          
+          <Features />
           <Included />
           <ModelOneVTwo />
           <Video />
-          <RunYourOwn />
-          <Image />
-          <Features />
+          
+          
+          
           <Footer />
         </Suspense>
       </main>
