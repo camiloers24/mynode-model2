@@ -21,7 +21,8 @@ export const Reveal = ({ children, width = "w-full" }) => {
         }}
         initial="hidden"
         animate={mainControls}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }} // Curva tipo Apple
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        style={{ willChange: 'opacity, transform' }}
       >
         {children}
       </motion.div>
